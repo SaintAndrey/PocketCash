@@ -8,21 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		CE24CE241FD08CEB0099CA24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24CE231FD08CEB0099CA24 /* AppDelegate.swift */; };
-		CE24CE261FD08CEB0099CA24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24CE251FD08CEB0099CA24 /* ViewController.swift */; };
 		CE24CE291FD08CEB0099CA24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE24CE271FD08CEB0099CA24 /* Main.storyboard */; };
 		CE24CE2B1FD08CEB0099CA24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE24CE2A1FD08CEB0099CA24 /* Assets.xcassets */; };
 		CE24CE2E1FD08CEB0099CA24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE24CE2C1FD08CEB0099CA24 /* LaunchScreen.storyboard */; };
+		CE2618A71FD4353B00C19D5E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2618A61FD4353B00C19D5E /* MainViewController.swift */; };
 		CE2C4A141FD137CB0073DDC8 /* CashDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C4A131FD137CB0073DDC8 /* CashDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE24CE201FD08CEB0099CA24 /* PocketCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE24CE231FD08CEB0099CA24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE24CE251FD08CEB0099CA24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE24CE281FD08CEB0099CA24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE24CE2A1FD08CEB0099CA24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE24CE2D1FD08CEB0099CA24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE24CE2F1FD08CEB0099CA24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE2618A61FD4353B00C19D5E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CE2C4A131FD137CB0073DDC8 /* CashDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,15 +56,23 @@
 		CE24CE221FD08CEB0099CA24 /* PocketCash */ = {
 			isa = PBXGroup;
 			children = (
+				CE2618A51FD4298D00C19D5E /* Supporting Files */,
 				CE24CE231FD08CEB0099CA24 /* AppDelegate.swift */,
-				CE24CE251FD08CEB0099CA24 /* ViewController.swift */,
-				CE24CE271FD08CEB0099CA24 /* Main.storyboard */,
 				CE24CE2A1FD08CEB0099CA24 /* Assets.xcassets */,
 				CE24CE2C1FD08CEB0099CA24 /* LaunchScreen.storyboard */,
-				CE24CE2F1FD08CEB0099CA24 /* Info.plist */,
 				CE2C4A131FD137CB0073DDC8 /* CashDetailViewController.swift */,
+				CE2618A61FD4353B00C19D5E /* MainViewController.swift */,
+				CE24CE271FD08CEB0099CA24 /* Main.storyboard */,
+				CE24CE2F1FD08CEB0099CA24 /* Info.plist */,
 			);
 			path = PocketCash;
+			sourceTree = "<group>";
+		};
+		CE2618A51FD4298D00C19D5E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,9 +147,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE24CE261FD08CEB0099CA24 /* ViewController.swift in Sources */,
 				CE2C4A141FD137CB0073DDC8 /* CashDetailViewController.swift in Sources */,
 				CE24CE241FD08CEB0099CA24 /* AppDelegate.swift in Sources */,
+				CE2618A71FD4353B00C19D5E /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +289,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 66432QR97X;
 				INFOPLIST_FILE = PocketCash/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kz.FBGroup.Company.PocketCash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -296,6 +305,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 66432QR97X;
 				INFOPLIST_FILE = PocketCash/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kz.FBGroup.Company.PocketCash;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -1,20 +1,18 @@
 //
-//  CashDetailViewController.swift
+//  MainViewController.swift
 //  PocketCash
 //
-//  Created by User on 01.12.17.
+//  Created by User on 03.12.17.
 //  Copyright © 2017 Bimbetov Farabi. All rights reserved.
 //
 
 import UIKit
 
-class CashDetailViewController: UIViewController {
+class MainViewController: UIViewController {
 
-   
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+
         // Do any additional setup after loading the view.
     }
 
@@ -22,7 +20,7 @@ class CashDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 
     /*
     // MARK: - Navigation
