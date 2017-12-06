@@ -51,7 +51,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="URu-wP-sWr">
-                                <rect key="frame" x="0.0" y="198" width="375" height="469"/>
+                                <rect key="frame" x="0.0" y="198" width="375" height="409"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Product Cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="Product Cell" rowHeight="76" id="VmH-7L-1o0" customClass="YourCell" customModule="PocketCash" customModuleProvider="target">
@@ -114,30 +114,60 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="cellCash" destination="u2g-iJ-IEX" id="ju4-nf-Mcj"/>
-                                            <outlet property="cellDate" destination="2G9-Oh-3IK" id="UdQ-Ur-R8G"/>
-                                            <outlet property="cellImage" destination="fXF-8I-DBx" id="Ozg-dl-gJd"/>
-                                            <outlet property="cellTitle" destination="7EQ-3p-Dmy" id="dPi-iU-1dA"/>
+                                            <outlet property="cellCash" destination="u2g-iJ-IEX" id="WeT-8B-bKD"/>
+                                            <outlet property="cellDate" destination="2G9-Oh-3IK" id="bHi-Wk-ioH"/>
+                                            <outlet property="cellImage" destination="fXF-8I-DBx" id="0bN-a3-1H8"/>
+                                            <outlet property="cellTitle" destination="7EQ-3p-Dmy" id="J5G-hM-1MM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="HL3-l1-GPQ" id="eHf-Co-sxB"/>
+                                    <outlet property="delegate" destination="HL3-l1-GPQ" id="RtT-L4-Xx5"/>
+                                </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gcf-DB-hsi">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="transfer" translatesAutoresizingMaskIntoConstraints="NO" id="MUH-Mz-p3p">
+                                        <rect key="frame" x="157.5" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="vus-4Y-w3e"/>
+                                            <constraint firstAttribute="height" constant="60" id="wV5-Vp-m0b"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="MUH-Mz-p3p" secondAttribute="bottom" id="04J-oe-ezh"/>
+                                    <constraint firstAttribute="height" constant="60" id="Cpb-eT-W5N"/>
+                                    <constraint firstItem="MUH-Mz-p3p" firstAttribute="centerX" secondItem="gcf-DB-hsi" secondAttribute="centerX" id="jAS-jJ-Q53"/>
+                                    <constraint firstItem="MUH-Mz-p3p" firstAttribute="top" secondItem="gcf-DB-hsi" secondAttribute="top" id="riW-oF-YlS"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Sd4-07-lW7" firstAttribute="height" secondItem="YeC-oa-OHY" secondAttribute="height" multiplier="0.2" id="0Ia-Oe-9EF"/>
+                            <constraint firstItem="gcf-DB-hsi" firstAttribute="trailing" secondItem="ceq-dv-vRi" secondAttribute="trailing" id="85P-6J-s3L"/>
                             <constraint firstAttribute="trailing" secondItem="Sd4-07-lW7" secondAttribute="trailing" id="IY8-UF-k2V"/>
                             <constraint firstItem="URu-wP-sWr" firstAttribute="top" secondItem="Sd4-07-lW7" secondAttribute="bottom" id="KzQ-jy-GsV"/>
                             <constraint firstItem="Sd4-07-lW7" firstAttribute="top" secondItem="ceq-dv-vRi" secondAttribute="top" id="NcI-V3-mdo"/>
+                            <constraint firstItem="gcf-DB-hsi" firstAttribute="leading" secondItem="ceq-dv-vRi" secondAttribute="leading" id="ZyC-Wx-ieK"/>
                             <constraint firstItem="URu-wP-sWr" firstAttribute="top" secondItem="Sd4-07-lW7" secondAttribute="bottom" id="d8X-E9-OQs"/>
-                            <constraint firstItem="ceq-dv-vRi" firstAttribute="bottom" secondItem="URu-wP-sWr" secondAttribute="bottom" id="dpy-g6-fpi"/>
+                            <constraint firstItem="gcf-DB-hsi" firstAttribute="top" secondItem="URu-wP-sWr" secondAttribute="bottom" id="dlU-eY-hdG"/>
+                            <constraint firstItem="gcf-DB-hsi" firstAttribute="bottom" secondItem="ceq-dv-vRi" secondAttribute="bottom" id="dvZ-XK-Cxh"/>
                             <constraint firstItem="URu-wP-sWr" firstAttribute="leading" secondItem="YeC-oa-OHY" secondAttribute="leading" id="mOV-8H-A4b"/>
                             <constraint firstItem="Sd4-07-lW7" firstAttribute="leading" secondItem="YeC-oa-OHY" secondAttribute="leading" id="pFe-tT-9qE"/>
                             <constraint firstAttribute="trailing" secondItem="URu-wP-sWr" secondAttribute="trailing" id="tF0-XR-m7M"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ceq-dv-vRi"/>
                     </view>
+                    <connections>
+                        <outlet property="currentBalance" destination="hqM-kI-SDq" id="zNm-5l-IJc"/>
+                        <outlet property="tableView" destination="URu-wP-sWr" id="DeD-qU-rVD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ceS-f1-coF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -333,5 +363,6 @@
         <image name="accessory" width="128" height="128"/>
         <image name="boss" width="256" height="256"/>
         <image name="rightArrow" width="16" height="16"/>
+        <image name="transfer" width="64" height="64"/>
     </resources>
 </document>
