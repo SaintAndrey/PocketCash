@@ -170,6 +170,64 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ceS-f1-coF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="65F-Z5-aII">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cQi-tv-cHX">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Новая история" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iw9-Qs-d5i">
+                                    <rect key="frame" x="119.5" y="16" width="136" height="23"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dIh-YK-gNB">
+                                    <rect key="frame" x="30" y="59" width="119" height="29"/>
+                                    <color key="backgroundColor" red="0.98270505669999997" green="0.98007172350000005" blue="0.9760347009" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <segments>
+                                        <segment title="Доход"/>
+                                        <segment title="Расход"/>
+                                    </segments>
+                                    <color key="tintColor" red="0.59419482950000002" green="0.75389486549999996" blue="0.06826183945" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </segmentedControl>
+                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YaG-X4-4t7">
+                                    <rect key="frame" x="174" y="59" width="25" height="30"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Категория" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdz-MO-lZY">
+                                    <rect key="frame" x="30" y="137" width="89" height="21"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.94265323879999996" green="0.3702861965" blue="0.15067982669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="Fdz-MO-lZY" firstAttribute="top" secondItem="dIh-YK-gNB" secondAttribute="bottom" constant="50" id="4Sh-Yu-1ES"/>
+                                <constraint firstItem="iw9-Qs-d5i" firstAttribute="centerX" secondItem="cQi-tv-cHX" secondAttribute="centerX" id="7Za-OR-ecp"/>
+                                <constraint firstItem="dIh-YK-gNB" firstAttribute="leading" secondItem="cQi-tv-cHX" secondAttribute="leading" constant="30" id="MHh-WC-v54"/>
+                                <constraint firstItem="YaG-X4-4t7" firstAttribute="leading" secondItem="dIh-YK-gNB" secondAttribute="trailing" constant="25" id="UFw-7m-v0r"/>
+                                <constraint firstItem="dIh-YK-gNB" firstAttribute="top" secondItem="iw9-Qs-d5i" secondAttribute="bottom" constant="20" id="dkf-gM-a3H"/>
+                                <constraint firstItem="iw9-Qs-d5i" firstAttribute="top" secondItem="cQi-tv-cHX" secondAttribute="top" constant="16" id="h6I-2G-Ml5"/>
+                                <constraint firstAttribute="trailing" secondItem="YaG-X4-4t7" secondAttribute="trailing" constant="30" id="i2F-Rj-Y4L"/>
+                                <constraint firstItem="Fdz-MO-lZY" firstAttribute="leading" secondItem="cQi-tv-cHX" secondAttribute="leading" constant="30" id="m32-D2-TaG"/>
+                                <constraint firstItem="YaG-X4-4t7" firstAttribute="top" secondItem="iw9-Qs-d5i" secondAttribute="bottom" constant="20" id="qMI-hw-hbc"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="cQi-tv-cHX" firstAttribute="leading" secondItem="Ra4-XX-RKc" secondAttribute="leading" id="46U-fg-CLw"/>
+                        <constraint firstItem="cQi-tv-cHX" firstAttribute="top" secondItem="Ra4-XX-RKc" secondAttribute="top" id="Ff7-7e-RI3"/>
+                        <constraint firstItem="Ra4-XX-RKc" firstAttribute="trailing" secondItem="cQi-tv-cHX" secondAttribute="trailing" id="Nqz-Rn-Xm0"/>
+                        <constraint firstItem="Ra4-XX-RKc" firstAttribute="bottom" secondItem="cQi-tv-cHX" secondAttribute="bottom" id="V0i-eK-nX1"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="Ra4-XX-RKc"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="1048.8" y="124.58770614692655"/>
         </scene>
