@@ -130,20 +130,23 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gcf-DB-hsi">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="transfer" translatesAutoresizingMaskIntoConstraints="NO" id="MUH-Mz-p3p">
-                                        <rect key="frame" x="157.5" y="0.0" width="60" height="60"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REa-Iv-Rno">
+                                        <rect key="frame" x="157" y="0.0" width="60" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="vus-4Y-w3e"/>
-                                            <constraint firstAttribute="height" constant="60" id="wV5-Vp-m0b"/>
+                                            <constraint firstAttribute="width" constant="60" id="ojI-Lq-13r"/>
                                         </constraints>
-                                    </imageView>
+                                        <state key="normal" image="transfer"/>
+                                        <connections>
+                                            <action selector="cashChangesButoonPressed" destination="HL3-l1-GPQ" eventType="touchUpInside" id="Hy9-3H-QAo"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="MUH-Mz-p3p" secondAttribute="bottom" id="04J-oe-ezh"/>
+                                    <constraint firstItem="REa-Iv-Rno" firstAttribute="top" secondItem="gcf-DB-hsi" secondAttribute="top" id="31Y-KC-6qc"/>
+                                    <constraint firstItem="REa-Iv-Rno" firstAttribute="centerX" secondItem="gcf-DB-hsi" secondAttribute="centerX" id="67c-xK-b9J"/>
                                     <constraint firstAttribute="height" constant="60" id="Cpb-eT-W5N"/>
-                                    <constraint firstItem="MUH-Mz-p3p" firstAttribute="centerX" secondItem="gcf-DB-hsi" secondAttribute="centerX" id="jAS-jJ-Q53"/>
-                                    <constraint firstItem="MUH-Mz-p3p" firstAttribute="top" secondItem="gcf-DB-hsi" secondAttribute="top" id="riW-oF-YlS"/>
+                                    <constraint firstAttribute="bottom" secondItem="REa-Iv-Rno" secondAttribute="bottom" id="Njx-2x-3KL"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -165,12 +168,14 @@
                         <viewLayoutGuide key="safeArea" id="ceq-dv-vRi"/>
                     </view>
                     <connections>
+                        <outlet property="cashChangesButoon" destination="REa-Iv-Rno" id="SG5-d2-lzr"/>
+                        <outlet property="cashChangesView" destination="65F-Z5-aII" id="a1Y-oC-4JK"/>
                         <outlet property="currentBalance" destination="hqM-kI-SDq" id="zNm-5l-IJc"/>
                         <outlet property="tableView" destination="URu-wP-sWr" id="DeD-qU-rVD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ceS-f1-coF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="65F-Z5-aII">
+                <view contentMode="scaleToFill" id="65F-Z5-aII" userLabel="Cash Changes View">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -178,12 +183,12 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Новая история" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iw9-Qs-d5i">
-                                    <rect key="frame" x="119.5" y="16" width="136" height="23"/>
+                                    <rect key="frame" x="120" y="16" width="136" height="23"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dIh-YK-gNB">
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dIh-YK-gNB">
                                     <rect key="frame" x="30" y="59" width="119" height="29"/>
                                     <color key="backgroundColor" red="0.98270505669999997" green="0.98007172350000005" blue="0.9760347009" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <segments>
@@ -192,7 +197,7 @@
                                     </segments>
                                     <color key="tintColor" red="0.59419482950000002" green="0.75389486549999996" blue="0.06826183945" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </segmentedControl>
-                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YaG-X4-4t7">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YaG-X4-4t7">
                                     <rect key="frame" x="174" y="59" width="25" height="30"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -204,16 +209,24 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vc7-rx-Q2j">
+                                    <rect key="frame" x="26" y="172" width="97" height="30"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
                             </subviews>
                             <color key="backgroundColor" red="0.94265323879999996" green="0.3702861965" blue="0.15067982669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="Fdz-MO-lZY" firstAttribute="top" secondItem="dIh-YK-gNB" secondAttribute="bottom" constant="50" id="4Sh-Yu-1ES"/>
+                                <constraint firstItem="Vc7-rx-Q2j" firstAttribute="top" secondItem="Fdz-MO-lZY" secondAttribute="bottom" constant="14" id="4gQ-hu-cye"/>
                                 <constraint firstItem="iw9-Qs-d5i" firstAttribute="centerX" secondItem="cQi-tv-cHX" secondAttribute="centerX" id="7Za-OR-ecp"/>
+                                <constraint firstItem="Vc7-rx-Q2j" firstAttribute="centerX" secondItem="Fdz-MO-lZY" secondAttribute="centerX" id="CRl-Am-Xld"/>
                                 <constraint firstItem="dIh-YK-gNB" firstAttribute="leading" secondItem="cQi-tv-cHX" secondAttribute="leading" constant="30" id="MHh-WC-v54"/>
                                 <constraint firstItem="YaG-X4-4t7" firstAttribute="leading" secondItem="dIh-YK-gNB" secondAttribute="trailing" constant="25" id="UFw-7m-v0r"/>
+                                <constraint firstItem="Vc7-rx-Q2j" firstAttribute="leading" secondItem="cQi-tv-cHX" secondAttribute="leading" constant="26" id="ZM4-s3-0AA"/>
                                 <constraint firstItem="dIh-YK-gNB" firstAttribute="top" secondItem="iw9-Qs-d5i" secondAttribute="bottom" constant="20" id="dkf-gM-a3H"/>
                                 <constraint firstItem="iw9-Qs-d5i" firstAttribute="top" secondItem="cQi-tv-cHX" secondAttribute="top" constant="16" id="h6I-2G-Ml5"/>
-                                <constraint firstAttribute="trailing" secondItem="YaG-X4-4t7" secondAttribute="trailing" constant="30" id="i2F-Rj-Y4L"/>
                                 <constraint firstItem="Fdz-MO-lZY" firstAttribute="leading" secondItem="cQi-tv-cHX" secondAttribute="leading" constant="30" id="m32-D2-TaG"/>
                                 <constraint firstItem="YaG-X4-4t7" firstAttribute="top" secondItem="iw9-Qs-d5i" secondAttribute="bottom" constant="20" id="qMI-hw-hbc"/>
                             </constraints>

@@ -26,6 +26,8 @@ class CashDetailViewController: UIViewController,UITableViewDelegate, UITableVie
     
     @IBOutlet weak var currentBalance: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var cashChangesButoon: UIButton!
+    @IBOutlet var cashChangesView: UIView!
     
     var currentAccount: Int = 1
     var tableCellCount: Int = 1
@@ -56,6 +58,17 @@ class CashDetailViewController: UIViewController,UITableViewDelegate, UITableVie
         //getBalanceFromBD()
         tableView.reloadData()
     }
+    
+    @IBAction func cashChangesButoonPressed(){
+        self.view.addSubview(self.cashChangesView)
+        //self.cashChangesView.frame = UIScreen.main.bounds
+        //view.isUserInteractionEnabled = false
+        let screenSize:CGRect = UIScreen.main.bounds
+        cashChangesView.frame.size.height = screenSize.height * 0.50
+        cashChangesView.frame.size.width = screenSize.width
+        cashChangesView.frame = CGRect(0, screenSize.height * 0.50 - 60, screenSize.width, screenSize.height * 0.50)
+        print("cashChangesButoonPressed")
+    }
  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return imagesArray.count// your number of cell here
@@ -69,11 +82,18 @@ class CashDetailViewController: UIViewController,UITableViewDelegate, UITableVie
         cell.cellTitle?.text = "Данные о местоположении недоступны"
         return cell
     }
-    
+   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let vc = storyboard?.instantiateViewController(withIdentifier: "operationViewController") as! operationViewController
 //        vc.toPass = indexPath.row
 //        vc.dictionaryData = tableData
 //        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+extension CGRect {
+    
+    init(_ x:CGFloat, _ y:CGFloat, _ w:CGFloat, _ h:CGFloat) {
+        
+        self.init(x:x, y:y, width:w, height:h)
     }
 }
