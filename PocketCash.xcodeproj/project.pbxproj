@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		577473EDDC4FFC4D926B4913 /* Pods_PocketCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4360C0C299EF11A46D05AB98 /* Pods_PocketCash.framework */; };
 		CE24CE241FD08CEB0099CA24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24CE231FD08CEB0099CA24 /* AppDelegate.swift */; };
 		CE24CE291FD08CEB0099CA24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE24CE271FD08CEB0099CA24 /* Main.storyboard */; };
 		CE24CE2B1FD08CEB0099CA24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE24CE2A1FD08CEB0099CA24 /* Assets.xcassets */; };
 		CE24CE2E1FD08CEB0099CA24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE24CE2C1FD08CEB0099CA24 /* LaunchScreen.storyboard */; };
 		CE2618A71FD4353B00C19D5E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2618A61FD4353B00C19D5E /* MainViewController.swift */; };
 		CE2C4A141FD137CB0073DDC8 /* CashDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C4A131FD137CB0073DDC8 /* CashDetailViewController.swift */; };
+		CE40A7D91FDF18AA00B905C8 /* CashOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40A7D81FDF18AA00B905C8 /* CashOperation.swift */; };
+		CE40A7DB1FDF1DF800B905C8 /* DataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40A7DA1FDF1DF800B905C8 /* DataBaseService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		119977F87AD2DE0A7FDF8608 /* Pods-PocketCash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCash/Pods-PocketCash.debug.xcconfig"; sourceTree = "<group>"; };
+		4360C0C299EF11A46D05AB98 /* Pods_PocketCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE24CE201FD08CEB0099CA24 /* PocketCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE24CE231FD08CEB0099CA24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE24CE281FD08CEB0099CA24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -24,6 +29,9 @@
 		CE24CE2F1FD08CEB0099CA24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE2618A61FD4353B00C19D5E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CE2C4A131FD137CB0073DDC8 /* CashDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashDetailViewController.swift; sourceTree = "<group>"; };
+		CE40A7D81FDF18AA00B905C8 /* CashOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashOperation.swift; sourceTree = "<group>"; };
+		CE40A7DA1FDF1DF800B905C8 /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
+		D49131F01BCDED466A1D1392 /* Pods-PocketCash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCash.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCash/Pods-PocketCash.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				577473EDDC4FFC4D926B4913 /* Pods_PocketCash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D7F90A5DEE939571D805357 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4360C0C299EF11A46D05AB98 /* Pods_PocketCash.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		735BBAF2B8AB53AD81120A60 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				119977F87AD2DE0A7FDF8608 /* Pods-PocketCash.debug.xcconfig */,
+				D49131F01BCDED466A1D1392 /* Pods-PocketCash.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CE24CE171FD08CEB0099CA24 = {
 			isa = PBXGroup;
 			children = (
 				CE24CE221FD08CEB0099CA24 /* PocketCash */,
 				CE24CE211FD08CEB0099CA24 /* Products */,
+				735BBAF2B8AB53AD81120A60 /* Pods */,
+				2D7F90A5DEE939571D805357 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +90,8 @@
 				CE24CE2C1FD08CEB0099CA24 /* LaunchScreen.storyboard */,
 				CE2C4A131FD137CB0073DDC8 /* CashDetailViewController.swift */,
 				CE2618A61FD4353B00C19D5E /* MainViewController.swift */,
+				CE40A7D81FDF18AA00B905C8 /* CashOperation.swift */,
+				CE40A7DA1FDF1DF800B905C8 /* DataBaseService.swift */,
 				CE24CE271FD08CEB0099CA24 /* Main.storyboard */,
 				CE24CE2F1FD08CEB0099CA24 /* Info.plist */,
 			);
@@ -82,9 +112,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE24CE321FD08CEB0099CA24 /* Build configuration list for PBXNativeTarget "PocketCash" */;
 			buildPhases = (
+				A6D71512562A088ABE377351 /* [CP] Check Pods Manifest.lock */,
 				CE24CE1C1FD08CEB0099CA24 /* Sources */,
 				CE24CE1D1FD08CEB0099CA24 /* Frameworks */,
 				CE24CE1E1FD08CEB0099CA24 /* Resources */,
+				96AF7FFF27E1A9C524EB082A /* [CP] Embed Pods Frameworks */,
+				F5EF3E70B193E306B5559380 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -142,6 +175,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		96AF7FFF27E1A9C524EB082A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PocketCash/Pods-PocketCash-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6D71512562A088ABE377351 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F5EF3E70B193E306B5559380 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PocketCash/Pods-PocketCash-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CE24CE1C1FD08CEB0099CA24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -149,6 +230,8 @@
 			files = (
 				CE2C4A141FD137CB0073DDC8 /* CashDetailViewController.swift in Sources */,
 				CE24CE241FD08CEB0099CA24 /* AppDelegate.swift in Sources */,
+				CE40A7D91FDF18AA00B905C8 /* CashOperation.swift in Sources */,
+				CE40A7DB1FDF1DF800B905C8 /* DataBaseService.swift in Sources */,
 				CE2618A71FD4353B00C19D5E /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,10 +367,16 @@
 		};
 		CE24CE331FD08CEB0099CA24 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 119977F87AD2DE0A7FDF8608 /* Pods-PocketCash.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 66432QR97X;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GRDB.swift\"",
+					"$(SRCROOT)",
+				);
 				INFOPLIST_FILE = PocketCash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -300,10 +389,16 @@
 		};
 		CE24CE341FD08CEB0099CA24 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D49131F01BCDED466A1D1392 /* Pods-PocketCash.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 66432QR97X;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GRDB.swift\"",
+				);
 				INFOPLIST_FILE = PocketCash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

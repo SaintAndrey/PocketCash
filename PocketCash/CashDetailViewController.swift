@@ -23,53 +23,84 @@ class YourCell:UITableViewCell{
 }
 
 class CashDetailViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
-    
+    //         CashDetailViewController
     @IBOutlet weak var currentBalance: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cashChangesButoon: UIButton!
+   
+    //         CashChangesVIEW
     @IBOutlet var cashChangesView: UIView!
+    @IBOutlet weak var cashChangesEXITButton: UIButton!
+    @IBOutlet weak var incomeAndExpenses: UITextField!
+    @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var commentTextView: UITextView!
+    @IBOutlet weak var addMoneyChangesButton: UIButton!
     
+    var incomeCash: Bool = true
     var currentAccount: Int = 1
     var tableCellCount: Int = 1
-    //var currentCash = "22 000p."
     var imagesArray = [String]()
+    
+    let effectView = UIVisualEffectView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         imagesArray = ["Flash drive",
                        "Multicharging ",
                        "Cover for CD",
                        "Car charging"]
         
-        tableView.dataSource = self;
-        tableView.delegate = self;
+        tableView.dataSource = self
+        tableView.delegate = self
         
-       // tableView.register(YourCell.self, forCellReuseIdentifier: "Product Cell")
         self.automaticallyAdjustsScrollViewInsets = false
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //getBalanceFromBD()
         tableView.reloadData()
     }
     
-    @IBAction func cashChangesButoonPressed(){
-        self.view.addSubview(self.cashChangesView)
-        //self.cashChangesView.frame = UIScreen.main.bounds
-        //view.isUserInteractionEnabled = false
-        let screenSize:CGRect = UIScreen.main.bounds
-        cashChangesView.frame.size.height = screenSize.height * 0.50
-        cashChangesView.frame.size.width = screenSize.width
-        cashChangesView.frame = CGRect(0, screenSize.height * 0.50 - 60, screenSize.width, screenSize.height * 0.50)
+    @IBAction func cashChangesExitButtonPressed() {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.effectView.effect = nil
+        self.effectView.removeFromSuperview()
+        self.cashChangesView.removeFromSuperview()
+    }
+    
+    @IBAction func cashChangesButoonPressed() {
+        addBlurEffect()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         print("cashChangesButoonPressed")
     }
- 
+    
+    @IBAction func switchViewAction(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0: incomeCash = true
+            break
+        case 1: incomeCash = false
+            break
+        default:
+            break
+        }
+        print("It is incomeCash? \(incomeCash)")
+    }
+    func addBlurEffect(){
+        effectView.frame = view.bounds
+        effectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.effectView.effect = UIBlurEffect(style: .dark)
+        view.addSubview(effectView)
+      
+        let screenSize:CGRect = UIScreen.main.bounds
+        self.cashChangesView.frame = CGRect(0, 60, screenSize.width, screenSize.height * 0.50)
+        view.addSubview(self.cashChangesView)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return imagesArray.count// your number of cell here
     }
@@ -79,7 +110,7 @@ class CashDetailViewController: UIViewController,UITableViewDelegate, UITableVie
         cell.cellImage?.image = UIImage(named: "balanc_plus_icon")!
         cell.cellCash?.text = "22 000p."
         cell.cellDate?.text = "04.12.2017"
-        cell.cellTitle?.text = "Данные о местоположении недоступны"
+        cell.cellTitle?.text = "Купил маме цветы"
         return cell
     }
    
