@@ -5,5 +5,5 @@ use_frameworks!
 target 'PocketCash' do
     
 	pod 'GRDB.swift'
-
+    pod 'SwiftyJSON'
 end

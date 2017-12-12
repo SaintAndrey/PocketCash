@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 
 class YourCell:UITableViewCell{
@@ -36,6 +37,8 @@ class CashDetailViewController: UIViewController,UITableViewDelegate, UITableVie
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var addMoneyChangesButton: UIButton!
     
+    var tableData = [Dictionary<String, String>]()
+    
     var incomeCash: Bool = true
     var currentAccount: Int = 1
     var tableCellCount: Int = 1
@@ -54,6 +57,47 @@ class CashDetailViewController: UIViewController,UITableViewDelegate, UITableVie
         tableView.dataSource = self
         tableView.delegate = self
         
+        let allOperations = DataBaseService.sharedInstance.readCashOperation()
+        let ticketsJsons = allOperations.map { $0.json() }
+        let resultTicketsJsons = JSON( ticketsJsons)
+        print(resultTicketsJsons.rawString() ?? "<null>")
+   //     resultTicketsJsons
+        //let rows = try Row.fetchCursor(db, "SELECT * FROM pocketCash")
+//        while let resultTicketsJson = resultTicketsJsons.endIndex {
+//            print("last cashOperation: \(resultTicketsJson["category"])")
+//        }
+//        for eachTicket in resultTicketsJsons {
+//            if let category = eachTicket["category"] as? String {
+//                print("current category: \(category)")
+//            }
+//
+//
+//        }
+        for (key,resultTicketsJson):(String, JSON) in resultTicketsJsons {
+            print("current category: \(resultTicketsJson["category"])")
+            //        let id: Int
+            //        let cash: Int
+            //        let date: Date
+            //        let comment: String
+            //        let income: Bool
+            //        let category: String
+            self.tableData.append([ "id": "\(resultTicketsJson["id"])",
+                                    "cash": "\(resultTicketsJson["cash"])",
+                                    "date": "\(resultTicketsJson["date"])",
+                                    "comment": "\(resultTicketsJson["comment"])",
+                                    "income": "\(resultTicketsJson["income"])",
+                                    "category": "\(resultTicketsJson["category"])"
+                                   ])
+        }
+//        for resultTicketsJson in resultTicketsJsons {
+//            guard let category = resultTicketsJsons["category"].string
+//            else {
+//                continue
+//
+//            }
+//            print("current category: \(category)")
+//        }
+        
         self.automaticallyAdjustsScrollViewInsets = false
     }
 
@@ -64,6 +108,33 @@ class CashDetailViewController: UIViewController,UITableViewDelegate, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+    
+    @IBAction func addMoneyChangesButtonPressed() {
+//        let id: Int
+//        let cash: Int
+//        let date: Date
+//        let comment: String
+//        let income: Bool
+//        let category: String
+        //let a:Int? = incomeAndExpenses.text.toInt()
+        var cashOperation = CashOperation(
+                            cash: Int(incomeAndExpenses.text!)!,
+                            date: Date(),
+                            comment: commentTextView.text!,
+                            income: self.incomeCash,
+                            category: categoryTextField.text!)
+        
+        // Записываем операцию в Базу данных
+        DataBaseService.sharedInstance.insertCashOperation(cashOperation: cashOperation)
+        let allOperations = DataBaseService.sharedInstance.readCashOperation()
+       // print("allOperations: \(allOperations.) ")
+        
+        
+        //let allOperations = DataBaseService.sharedInstance.readCashOperation()
+        let ticketsJsons = allOperations.map { $0.json() }
+        let resultTicketsJson = JSON(ticketsJsons)
+        print(resultTicketsJson.rawString() ?? "<null>")
     }
     
     @IBAction func cashChangesExitButtonPressed() {
@@ -81,9 +152,9 @@ class CashDetailViewController: UIViewController,UITableViewDelegate, UITableVie
     
     @IBAction func switchViewAction(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
-        case 0: incomeCash = true
+        case 0: self.incomeCash = true
             break
-        case 1: incomeCash = false
+        case 1: self.incomeCash = false
             break
         default:
             break
@@ -102,15 +173,17 @@ class CashDetailViewController: UIViewController,UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return imagesArray.count// your number of cell here
+        return tableData.count// your number of cell here
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "Product Cell", for: indexPath) as! YourCell
-        cell.cellImage?.image = UIImage(named: "balanc_plus_icon")!
-        cell.cellCash?.text = "22 000p."
-        cell.cellDate?.text = "04.12.2017"
-        cell.cellTitle?.text = "Купил маме цветы"
+        //cell.cellImage?.image = UIImage(named: "balanc_plus_icon")!
+        print("income:  \(tableData[indexPath.row]["income"]!)")
+        cell.cellImage?.image = UIImage(named: (tableData[indexPath.row]["income"]! == "true") ? "minus" : "plus")
+        cell.cellCash?.text = tableData[indexPath.row]["cash"]!
+        cell.cellDate?.text = tableData[indexPath.row]["date"]!
+        cell.cellTitle?.text = tableData[indexPath.row]["comment"]!
         return cell
     }
    

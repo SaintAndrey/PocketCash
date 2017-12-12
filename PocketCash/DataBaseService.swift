@@ -35,7 +35,7 @@ class DataBaseService: NSObject {
     }
     
     func getCashOperation(fromRow row: Row) -> CashOperation {
-        let id: Int = row["id"]
+        let id: Int = Int(arc4random())
         let cash: Int = row["cash"]
         let date: Date = row["date"]
         let comment: String = row["comment"]
@@ -65,9 +65,9 @@ class DataBaseService: NSObject {
             try self.dbQueue?.inDatabase { db in
                 try db.execute(
                         "INSERT INTO pocketCash (cash, date, comment, income, category) " +
-                        "VALUES (?, ?, ?, ?, ?, ?)",
+                        "VALUES (?, ?, ?, ?, ?)",
                         arguments: [cashOperation.cash, cashOperation.date, cashOperation.comment, cashOperation.income, cashOperation.category])
-                    NSLog("CashOperation with id \(cashOperation.id) was inserted")
+                    NSLog("CashOperation with date \(cashOperation.date) was inserted")
             }
         } catch let error as DatabaseError {
             NSLog("Failed to insert new cashOperation to datebase.")
@@ -103,7 +103,9 @@ class DataBaseService: NSObject {
                 while let row = try rows.next() {
                     let cashOperation = self.getCashOperation(fromRow: row)
                     cashOperations.append(cashOperation)
+                    print("last cashOperation: \(cashOperation)")
                 }
+                print("cashOperations: \(cashOperations)")
             }
         } catch {
             NSLog("Failed to read from database")

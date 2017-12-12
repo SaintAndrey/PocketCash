@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class CashOperation: NSObject {
     let id: Int
@@ -27,6 +28,16 @@ class CashOperation: NSObject {
         self.comment = comment
         self.income = income
         self.category = category
+    }
+    
+    func json() -> JSON {
+        let dict = ["id" : self.id,
+                    "cash" : self.cash,
+                    "date" : self.date.description,
+                    "comment" : self.comment,
+                    "income" : self.income,
+                    "category" : self.category] as [String: Any?]
+        return JSON(dict)
     }
     
 }
