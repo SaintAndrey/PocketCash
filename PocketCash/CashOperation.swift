@@ -18,7 +18,7 @@ class CashOperation: NSObject {
     let category: String
     
     convenience init(cash: Int, date: Date, comment: String, income: Bool, category: String) {
-        self.init(id: 0, cash: cash, date: date, comment: comment, income: true, category: category)
+        self.init(id: 0, cash: cash, date: date, comment: comment, income: income, category: category)
     }
     
     init(id: Int, cash: Int, date: Date, comment: String, income: Bool, category:String) {
