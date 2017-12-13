@@ -392,8 +392,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22400.5 р" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6n-K3-soB">
-                                                <rect key="frame" x="266" y="10" width="79" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6n-K3-soB">
+                                                <rect key="frame" x="334.5" y="10" width="10.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -463,6 +463,9 @@
                         <viewLayoutGuide key="safeArea" id="WXe-h8-D4L"/>
                     </view>
                     <navigationItem key="navigationItem" id="fyg-dq-T1W"/>
+                    <connections>
+                        <outlet property="currentCash" destination="x6n-K3-soB" id="K0U-4m-j0k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I5C-ZS-MmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
