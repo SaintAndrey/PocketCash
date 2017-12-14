@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		577473EDDC4FFC4D926B4913 /* Pods_PocketCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4360C0C299EF11A46D05AB98 /* Pods_PocketCash.framework */; };
+		CE1BDAF31FE1A74500CF0431 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDAF21FE1A74500CF0431 /* SettingsViewController.swift */; };
+		CE1BDAF51FE1C03800CF0431 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDAF41FE1C03800CF0431 /* User.swift */; };
+		CE1BDAF71FE1C1FA00CF0431 /* UserDataBase2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDAF61FE1C1FA00CF0431 /* UserDataBase2.swift */; };
 		CE24CE241FD08CEB0099CA24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24CE231FD08CEB0099CA24 /* AppDelegate.swift */; };
 		CE24CE291FD08CEB0099CA24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE24CE271FD08CEB0099CA24 /* Main.storyboard */; };
 		CE24CE2B1FD08CEB0099CA24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE24CE2A1FD08CEB0099CA24 /* Assets.xcassets */; };
@@ -21,6 +24,9 @@
 /* Begin PBXFileReference section */
 		119977F87AD2DE0A7FDF8608 /* Pods-PocketCash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCash/Pods-PocketCash.debug.xcconfig"; sourceTree = "<group>"; };
 		4360C0C299EF11A46D05AB98 /* Pods_PocketCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE1BDAF21FE1A74500CF0431 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		CE1BDAF41FE1C03800CF0431 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CE1BDAF61FE1C1FA00CF0431 /* UserDataBase2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataBase2.swift; sourceTree = "<group>"; };
 		CE24CE201FD08CEB0099CA24 /* PocketCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE24CE231FD08CEB0099CA24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE24CE281FD08CEB0099CA24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,8 +96,11 @@
 				CE24CE2C1FD08CEB0099CA24 /* LaunchScreen.storyboard */,
 				CE2C4A131FD137CB0073DDC8 /* CashDetailViewController.swift */,
 				CE2618A61FD4353B00C19D5E /* MainViewController.swift */,
+				CE1BDAF21FE1A74500CF0431 /* SettingsViewController.swift */,
 				CE40A7D81FDF18AA00B905C8 /* CashOperation.swift */,
+				CE1BDAF41FE1C03800CF0431 /* User.swift */,
 				CE40A7DA1FDF1DF800B905C8 /* DataBaseService.swift */,
+				CE1BDAF61FE1C1FA00CF0431 /* UserDataBase2.swift */,
 				CE24CE271FD08CEB0099CA24 /* Main.storyboard */,
 				CE24CE2F1FD08CEB0099CA24 /* Info.plist */,
 			);
@@ -229,10 +238,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2C4A141FD137CB0073DDC8 /* CashDetailViewController.swift in Sources */,
+				CE1BDAF71FE1C1FA00CF0431 /* UserDataBase2.swift in Sources */,
 				CE24CE241FD08CEB0099CA24 /* AppDelegate.swift in Sources */,
 				CE40A7D91FDF18AA00B905C8 /* CashOperation.swift in Sources */,
 				CE40A7DB1FDF1DF800B905C8 /* DataBaseService.swift in Sources */,
 				CE2618A71FD4353B00C19D5E /* MainViewController.swift in Sources */,
+				CE1BDAF31FE1A74500CF0431 /* SettingsViewController.swift in Sources */,
+				CE1BDAF51FE1C03800CF0431 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

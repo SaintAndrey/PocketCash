@@ -12,18 +12,36 @@ import SwiftyJSON
 class MainViewController: UIViewController {
 
     @IBOutlet weak var currentCash: UILabel!
+    @IBOutlet weak var userName: UILabel!
     
     var currentBalanc: Int = 0
     var tableData = [Dictionary<String, String>]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(editTapped))
+        //navigationItem.rightBarButtonItem = button
         setupTableViewValues()
+        setupUserName()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupTableViewValues()
+    }
+    
+    @objc func editTapped(){
+        
+    }
+    
+    func setupUserName() {
+        let allOperations = DataBaseService.sharedInstance.readUser()
+        let allOperationsInJsons = allOperations.map { $0.json() }
+        let resultAllOperationsJsons = JSON(allOperationsInJsons)
+        print(resultAllOperationsJsons.rawString() ?? "<null>")
+        for (_,resultTicketsJson):(String, JSON) in resultAllOperationsJsons {
+            userName.text = resultTicketsJson["name"].string 
+        }
     }
     
     func setupTableViewValues() {
