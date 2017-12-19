@@ -16,7 +16,26 @@ class YourCell:UITableViewCell{
     @IBOutlet weak var cellDate: UILabel!
 }
 
-class CashDetailViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class CashDetailViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return tableData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return tableData[row]["category"]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.categoryTextField.text = self.tableData[row]["category"]
+        self.dropDown.isHidden = true
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.dropDown.isHidden = false
+    }
     //         CashDetailViewController
     @IBOutlet weak var currentBalance: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -29,6 +48,7 @@ class CashDetailViewController: UIViewController,UITableViewDelegate, UITableVie
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var addMoneyChangesButton: UIButton!
+    @IBOutlet weak var dropDown: UIPickerView!
     
     var tableData = [Dictionary<String, String>]()
     
@@ -43,7 +63,6 @@ class CashDetailViewController: UIViewController,UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        
         tableView.dataSource = self
         tableView.delegate = self
         setupTableViewValues()
@@ -66,9 +85,15 @@ class CashDetailViewController: UIViewController,UITableViewDelegate, UITableVie
             else {
             return
         }
+        let dateFormatter = DateFormatter()
+       // dateFormatter.dateStyle = .
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let date = dateFormatter.string(from: Date()) // 2/10/17
+
+        print("dateFormatter \(dateFormatter)")
         var cashOperation = CashOperation(
                             cash: Int(incomeAndExpenses.text!)!,
-                            date: Date(),
+                            date: date,
                             comment: commentTextView.text!,
                             income: self.incomeCash,
                             category: categoryTextField.text!)
@@ -141,7 +166,7 @@ class CashDetailViewController: UIViewController,UITableViewDelegate, UITableVie
         view.addSubview(effectView)
       
         let screenSize:CGRect = UIScreen.main.bounds
-        self.cashChangesView.frame = CGRect(0, 60, screenSize.width, screenSize.height * 0.50)
+        self.cashChangesView.frame = CGRect(0, 0, screenSize.width, screenSize.height * 0.50)
         view.addSubview(self.cashChangesView)
     }
     

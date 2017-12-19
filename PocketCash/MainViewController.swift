@@ -28,12 +28,9 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupTableViewValues()
+        setupUserName()
     }
-    
-    @objc func editTapped(){
-        
-    }
-    
+
     func setupUserName() {
         let allOperations = DataBaseService.sharedInstance.readUser()
         let allOperationsInJsons = allOperations.map { $0.json() }

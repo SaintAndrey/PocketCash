@@ -33,7 +33,11 @@ class DataBaseService: NSObject {
                         "name TEXT NOT NULL, " +
                         "surname TEXT NOT NULL, " +
                         "date TEXT NOT NULL, " +
-                    "gender TEXT NOT NULL)")
+                        "gender TEXT NOT NULL)")
+//                try db.execute(
+//                    "CREATE TABLE IF NOT EXISTS category (" +
+//                        "id INTEGER NOT NULL, " +
+//                        "name TEXT NOT NULL)")
             }
         } catch {
             NSLog("Failed to create database")
@@ -43,7 +47,7 @@ class DataBaseService: NSObject {
     func getCashOperation(fromRow row: Row) -> CashOperation {
         let id: Int = Int(arc4random())
         let cash: Int = row["cash"]
-        let date: Date = row["date"]
+        let date: String = row["date"]
         let comment: String = row["comment"]
         let income: Bool = row["income"]
         let category: String = row["category"]
