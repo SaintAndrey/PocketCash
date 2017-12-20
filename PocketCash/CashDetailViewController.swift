@@ -186,10 +186,10 @@ class CashDetailViewController: UIViewController,UITableViewDelegate, UITableVie
     }
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "operationViewController") as! operationViewController
-//        vc.toPass = indexPath.row
-//        vc.dictionaryData = tableData
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "transaction") as! TransactionViewController
+        vc.toPass = indexPath.row
+        vc.dictionaryData = tableData
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 extension CGRect {
