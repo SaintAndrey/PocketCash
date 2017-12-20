@@ -10,12 +10,12 @@ import UIKit
 
 class PurseOrTarget: NSObject {
 
-    let text: String
+    let name: String
     let amountCash: Double
     let isPurse: Bool
     
-    init(text: String, amountCash: Double, isPurse: Bool) {
-        self.text = text
+    init(name: String, amountCash: Double, isPurse: Bool) {
+        self.name = name
         self.amountCash = amountCash
         self.isPurse = isPurse
     }

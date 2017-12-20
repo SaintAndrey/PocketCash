@@ -44,7 +44,7 @@ class DataBaseService: NSObject {
                                 CREATE TABLE IF NOT EXISTS pursesAndTargets (
                                     namePurseOrTarget TEXT PRIMARY KEY,
                                     amountCash DOUBLE NOT NULL,
-                                    ispurse BOOLEAN NOT NULL)
+                                    isPurse BOOLEAN NOT NULL)
                                 """)
                 try db.execute("""
                                 CREATE TABLE IF NOT EXISTS logger (
@@ -99,7 +99,7 @@ class DataBaseService: NSObject {
     }
     
     // MARK: Insert Into Table
-    func insertCashOperation(transaction: Transaction) {
+    func insertTransaction(transaction: Transaction) {
         do {
             try self.dbQueue?.inDatabase { db in
                 try db.execute(
@@ -107,6 +107,48 @@ class DataBaseService: NSObject {
                         "VALUES (?, ?, ?, ?, ?)",
                         arguments: [transaction.cash, transaction.date, transaction.comment, transaction.category, transaction.purseOrTarget])
                     NSLog("CashOperation with date \(transaction.date) was inserted")
+            }
+        } catch let error as DatabaseError {
+            NSLog("Failed to insert new cashOperation to datebase.")
+            NSLog("Error: \(String(describing: error.message))")
+            NSLog("Request: \(String(describing: error.sql))")
+        } catch {
+            NSLog("Failed to insert new cashOperation to datebase.")
+            NSLog("Error: unknown error")
+        }
+    }
+    
+    func insertPurseOrTarger(purseOrTarget: PurseOrTarget) {
+        do {
+            try self.dbQueue?.inDatabase { db in
+                try db.execute(
+                    "INSERT INTO pursesAndTargets (namePurseOrTarget, amountCash, isPurse) " +
+                    "VALUES (?, ?, ?)",
+                    arguments: [purseOrTarget.name, purseOrTarget.amountCash, purseOrTarget.isPurse])
+                if (purseOrTarget.isPurse) {
+                    NSLog("Purse \(purseOrTarget.name) was inserted")
+                } else {
+                    NSLog("Target \(purseOrTarget.name) was inserted")
+                }
+            }
+        } catch let error as DatabaseError {
+            NSLog("Failed to insert new cashOperation to datebase.")
+            NSLog("Error: \(String(describing: error.message))")
+            NSLog("Request: \(String(describing: error.sql))")
+        } catch {
+            NSLog("Failed to insert new cashOperation to datebase.")
+            NSLog("Error: unknown error")
+        }
+    }
+    
+    func insertCategory(category: Category) {
+        do {
+            try self.dbQueue?.inDatabase { db in
+                try db.execute(
+                    "INSERT INTO category (nameCategory) " +
+                    "VALUES (?)",
+                    arguments: [category.nameCategory])
+                    NSLog("Category \(category.nameCategory) was inserted")
             }
         } catch let error as DatabaseError {
             NSLog("Failed to insert new cashOperation to datebase.")
