@@ -14,9 +14,9 @@ class Transaction: NSObject {
     let date: Date
     let comment: String
     let category: String
-    let pushOrTarget: String
+    let purseOrTarget: String
     
-    init(id: Int, cash: Double, date: Date, comment: String?, category: String, pushOrTarget: String) {
+    init(id: Int, cash: Double, date: Date, comment: String?, category: String, purseOrTarget: String) {
         self.id = id
         self.cash = cash
         self.date = date
@@ -26,7 +26,7 @@ class Transaction: NSObject {
             self.comment = comment!
         }
         self.category = category
-        self.pushOrTarget = pushOrTarget
+        self.purseOrTarget = purseOrTarget
     }
 
 }

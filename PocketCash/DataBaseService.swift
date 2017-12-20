@@ -14,6 +14,7 @@ class DataBaseService: NSObject {
     static let sharedInstance = DataBaseService()
     var dbQueue: DatabaseQueue?
     
+    // MARK: Create Table
     override init() {
         do {
             let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -97,14 +98,15 @@ class DataBaseService: NSObject {
         return isUsed
     }
     
-    func insertCashOperation(cashOperation: CashOperation) {
+    // MARK: Insert Into Table
+    func insertCashOperation(transaction: Transaction) {
         do {
             try self.dbQueue?.inDatabase { db in
                 try db.execute(
-                        "INSERT INTO pocketCash (cash, date, comment, income, category) " +
+                        "INSERT INTO transaction (cash, date, comment, category, purseOrTarget) " +
                         "VALUES (?, ?, ?, ?, ?)",
-                        arguments: [cashOperation.cash, cashOperation.date, cashOperation.comment, cashOperation.income, cashOperation.category])
-                    NSLog("CashOperation with date \(cashOperation.date) was inserted")
+                        arguments: [transaction.cash, transaction.date, transaction.comment, transaction.category, transaction.purseOrTarget])
+                    NSLog("CashOperation with date \(transaction.date) was inserted")
             }
         } catch let error as DatabaseError {
             NSLog("Failed to insert new cashOperation to datebase.")
