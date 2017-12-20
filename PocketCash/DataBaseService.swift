@@ -20,24 +20,51 @@ class DataBaseService: NSObject {
             let pathToDatabaseFile = "\(documentsPath)/database.sqlite"
             self.dbQueue = try DatabaseQueue(path: pathToDatabaseFile)
             try self.dbQueue?.inDatabase { db in
-                try db.execute(
-                    "CREATE TABLE IF NOT EXISTS pocketCash (" +
-                        "id INTEGER PRIMARY KEY, " +
-                        "cash INTEGER NOT NULL, " +
-                        "date DATETIME NOT NULL, " +
-                        "comment TEXT NOT NULL, " +
-                        "income BOOLEAN NOT NULL, " +
-                        "category TEXT NOT NULL)")
-                try db.execute(
-                    "CREATE TABLE IF NOT EXISTS user (" +
-                        "name TEXT NOT NULL, " +
-                        "surname TEXT NOT NULL, " +
-                        "date TEXT NOT NULL, " +
-                        "gender TEXT NOT NULL)")
-//                try db.execute(
-//                    "CREATE TABLE IF NOT EXISTS category (" +
-//                        "id INTEGER NOT NULL, " +
-//                        "name TEXT NOT NULL)")
+                try db.execute("""
+                                CREATE TABLE IF NOT EXISTS transaction (
+                                    id INTEGER PRIMARY KEY,
+                                    cash DOUBLE NOT NULL,
+                                    date DATETIME NOT NULL,
+                                    comment TEXT,
+                                    category TEXT NOT NULL,
+                                    purse_or_target TEXT NOT NULL,
+                                    FOREIGN KEY (purse_or_target) REFERENCES purses_and_targets(name_purse_or_target)
+                                    FOREIGN KEY (category) REFERENCES category(name_category))
+                                """)
+                try db.execute("""
+                                CREATE TABLE IF NOT EXISTS user (
+                                    name TEXT NOT NULL,
+                                    surname TEXT NOT NULL,
+                                    date TEXT NOT NULL,
+                                    gender TEXT NOT NULL)
+                                """)
+                try db.execute("""
+                                CREATE TABLE IF NOT EXISTS purses_and_targets (
+                                    name_purse_or_target TEXT PRIMARY KEY,
+                                    amount_cash DOUBLE NOT NULL,
+                                    ispurse BOOLEAN NOT NULL)
+                                """)
+                try db.execute("""
+                                CREATE TABLE IF NOT EXISTS logger (
+                                    id INTEGER PRIMARY KEY,
+                                    description TEXT NOT NULL,
+                                    date DATETIME NOT NULL)
+                                """)
+                try db.execute("""
+                                CREATE TABLE IF NOT EXISTS budget (
+                                    name TEXT NOT NULL,
+                                    purse_or_target TEXT NOT NULL,
+                                    max_amount DOUBLE NOT NULL,
+                                    current_amount DOUBLE NOT NULL,
+                                    begin_date DATETIME NOT NULL,
+                                    period DATETIME NOT NULL,
+                                    FOREIGN KEY (purse_or_target) REFERENCES purses_and_targets(name_purse_or_target))
+                                """)
+                try db.execute("""
+                                CREATE TABLE IF NOT EXISTS category (
+                                    name_category TEXT PRIMARY KEY)
+                                """)
+
             }
         } catch {
             NSLog("Failed to create database")
