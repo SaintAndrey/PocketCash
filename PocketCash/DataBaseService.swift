@@ -17,6 +17,7 @@ class DataBaseService: NSObject {
     override init() {
         do {
             let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+            print("documentsPath - \(documentsPath)")
             let pathToDatabaseFile = "\(documentsPath)/database.sqlite"
             self.dbQueue = try DatabaseQueue(path: pathToDatabaseFile)
             try self.dbQueue?.inDatabase { db in
@@ -27,9 +28,9 @@ class DataBaseService: NSObject {
                                     date DATETIME NOT NULL,
                                     comment TEXT,
                                     category TEXT NOT NULL,
-                                    purse_or_target TEXT NOT NULL,
-                                    FOREIGN KEY (purse_or_target) REFERENCES purses_and_targets(name_purse_or_target)
-                                    FOREIGN KEY (category) REFERENCES category(name_category))
+                                    purseOrTarget TEXT NOT NULL,
+                                    FOREIGN KEY (purseOrTarget) REFERENCES pursesAndTargets(namePurseOrTarget)
+                                    FOREIGN KEY (category) REFERENCES category(nameCategory))
                                 """)
                 try db.execute("""
                                 CREATE TABLE IF NOT EXISTS user (
@@ -39,30 +40,30 @@ class DataBaseService: NSObject {
                                     gender TEXT NOT NULL)
                                 """)
                 try db.execute("""
-                                CREATE TABLE IF NOT EXISTS purses_and_targets (
-                                    name_purse_or_target TEXT PRIMARY KEY,
-                                    amount_cash DOUBLE NOT NULL,
+                                CREATE TABLE IF NOT EXISTS pursesAndTargets (
+                                    namePurseOrTarget TEXT PRIMARY KEY,
+                                    amountCash DOUBLE NOT NULL,
                                     ispurse BOOLEAN NOT NULL)
                                 """)
                 try db.execute("""
                                 CREATE TABLE IF NOT EXISTS logger (
                                     id INTEGER PRIMARY KEY,
-                                    description TEXT NOT NULL,
+                                    descriptionLog TEXT NOT NULL,
                                     date DATETIME NOT NULL)
                                 """)
                 try db.execute("""
                                 CREATE TABLE IF NOT EXISTS budget (
                                     name TEXT NOT NULL,
-                                    purse_or_target TEXT NOT NULL,
-                                    max_amount DOUBLE NOT NULL,
-                                    current_amount DOUBLE NOT NULL,
-                                    begin_date DATETIME NOT NULL,
+                                    purseOrTarget TEXT NOT NULL,
+                                    maxAmount DOUBLE NOT NULL,
+                                    currentAmount DOUBLE NOT NULL,
+                                    beginDate DATETIME NOT NULL,
                                     period DATETIME NOT NULL,
-                                    FOREIGN KEY (purse_or_target) REFERENCES purses_and_targets(name_purse_or_target))
+                                    FOREIGN KEY (purseOrTarget) REFERENCES pursesAndTargets(namePurseOrTarget))
                                 """)
                 try db.execute("""
                                 CREATE TABLE IF NOT EXISTS category (
-                                    name_category TEXT PRIMARY KEY)
+                                    nameCategory TEXT PRIMARY KEY)
                                 """)
 
             }
