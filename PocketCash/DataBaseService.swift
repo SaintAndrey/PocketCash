@@ -18,6 +18,7 @@ class DataBaseService: NSObject {
         do {
             let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
             let pathToDatabaseFile = "\(documentsPath)/database.sqlite"
+            print("pathToDatabaseFile \(pathToDatabaseFile)")
             self.dbQueue = try DatabaseQueue(path: pathToDatabaseFile)
             try self.dbQueue?.inDatabase { db in
                 try db.execute("""
@@ -28,7 +29,7 @@ class DataBaseService: NSObject {
                                     comment TEXT,
                                     category TEXT NOT NULL,
                                     purse_or_target TEXT NOT NULL,
-                                    FOREIGN KEY (purse_or_target) REFERENCES purses_and_targets(name_purse_or_target)
+                                    FOREIGN KEY (purse_or_target) REFERENCES purses_and_targets(name_purse_or_target),
                                     FOREIGN KEY (category) REFERENCES category(name_category))
                                 """)
                 try db.execute("""
