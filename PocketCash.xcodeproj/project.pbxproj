@@ -11,6 +11,8 @@
 		5588B9BA1FEAE4A600600B8F /* PurseOrTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588B9B91FEAE4A600600B8F /* PurseOrTarget.swift */; };
 		5588B9BC1FEAE5E100600B8F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588B9BB1FEAE5E100600B8F /* Logger.swift */; };
 		5588B9BE1FEAE66C00600B8F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588B9BD1FEAE66C00600B8F /* Category.swift */; };
+		5588B9C31FEB4E9B00600B8F /* DataBaseCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588B9C21FEB4E9B00600B8F /* DataBaseCursor.swift */; };
+		5588B9C51FEB500C00600B8F /* CashDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588B9C41FEB500C00600B8F /* CashDay.swift */; };
 		577473EDDC4FFC4D926B4913 /* Pods_PocketCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4360C0C299EF11A46D05AB98 /* Pods_PocketCash.framework */; };
 		CE1BDAF31FE1A74500CF0431 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDAF21FE1A74500CF0431 /* SettingsViewController.swift */; };
 		CE1BDAF51FE1C03800CF0431 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDAF41FE1C03800CF0431 /* User.swift */; };
@@ -33,6 +35,8 @@
 		5588B9B91FEAE4A600600B8F /* PurseOrTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseOrTarget.swift; sourceTree = "<group>"; };
 		5588B9BB1FEAE5E100600B8F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		5588B9BD1FEAE66C00600B8F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		5588B9C21FEB4E9B00600B8F /* DataBaseCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseCursor.swift; sourceTree = "<group>"; };
+		5588B9C41FEB500C00600B8F /* CashDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashDay.swift; sourceTree = "<group>"; };
 		CE1BDAF21FE1A74500CF0431 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CE1BDAF41FE1C03800CF0431 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CE1BDAF61FE1C1FA00CF0431 /* UserDataBase2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataBase2.swift; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 				5588B9BD1FEAE66C00600B8F /* Category.swift */,
 				CE1BDAF41FE1C03800CF0431 /* User.swift */,
 				5588B9B71FEADFF000600B8F /* Transaction.swift */,
+				5588B9C41FEB500C00600B8F /* CashDay.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -86,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				CE40A7DA1FDF1DF800B905C8 /* DataBaseService.swift */,
+				5588B9C21FEB4E9B00600B8F /* DataBaseCursor.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -280,6 +286,7 @@
 				CE2C4A141FD137CB0073DDC8 /* CashDetailViewController.swift in Sources */,
 				5588B9BC1FEAE5E100600B8F /* Logger.swift in Sources */,
 				CE1BDAF71FE1C1FA00CF0431 /* UserDataBase2.swift in Sources */,
+				5588B9C31FEB4E9B00600B8F /* DataBaseCursor.swift in Sources */,
 				CE24CE241FD08CEB0099CA24 /* AppDelegate.swift in Sources */,
 				CE40A7D91FDF18AA00B905C8 /* CashOperation.swift in Sources */,
 				CE40A7DB1FDF1DF800B905C8 /* DataBaseService.swift in Sources */,
@@ -289,6 +296,7 @@
 				CE1BDAF51FE1C03800CF0431 /* User.swift in Sources */,
 				5588B9B81FEADFF000600B8F /* Transaction.swift in Sources */,
 				5588B9BE1FEAE66C00600B8F /* Category.swift in Sources */,
+				5588B9C51FEB500C00600B8F /* CashDay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@ class DataBaseService: NSObject {
    
     static let sharedInstance = DataBaseService()
     var dbQueue: DatabaseQueue?
+    let cursor = DataBaseCursor()
     
     // MARK: Create Table
     override init() {
@@ -303,13 +304,14 @@ class DataBaseService: NSObject {
         return cashOperations
     }
     
-    func readUser() -> [User] {
+    // MARK: Get Function
+    func getUser() -> [User] {
         var userInfo: [User] = []
         do {
             try self.dbQueue?.inDatabase { db in
                 let rows = try Row.fetchCursor(db, "SELECT * FROM user")
                 while let row = try rows.next() {
-                    let currentUser = self.getUser(fromRow: row)
+                    let currentUser = cursor.getUser(fromRow: row)
                     userInfo.append(currentUser)
                     print("currentUser: \(currentUser)")
                 }
@@ -321,12 +323,28 @@ class DataBaseService: NSObject {
         return userInfo
     }
     
-    func getUser(fromRow row: Row) -> User {
-        let name: String = row["name"]
-        let surname: String = row["surname"]
-        let date: String = row["date"]
-        let gender: String = row["gender"]
-        
-        return User(name: name, surname: surname, date: date, gender: gender)
+    func getCashDay() -> [CashDay] {
+        var cashDay: [CashDay] = []
+        let selectCashDay = """
+                    SELECT sum(cash), date
+                    FROM transactionTable
+                    GROUP BY date
+                    ORDER BY date DESC;
+                    """
+        do {
+            try self.dbQueue?.inDatabase { db in
+                let rows = try Row.fetchCursor(db, selectCashDay)
+                while let row = try rows.next() {
+                    let currentCashDay = cursor.getCashDay(fromRow: row)
+                    cashDay.append(currentCashDay)
+                    print("currentCashDay: \(currentCashDay)")
+                }
+                print("cashDay: \(cashDay)")
+            }
+        } catch {
+            NSLog("Failed to read from database")
+        }
+        return cashDay
     }
+    
 }
