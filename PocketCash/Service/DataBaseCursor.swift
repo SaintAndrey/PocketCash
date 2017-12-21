@@ -26,4 +26,15 @@ class DataBaseCursor: NSObject {
         
         return CashDay(cash: cash, date: date)
     }
+    
+    func getTransaction(fromRow row: Row) -> Transaction {
+        let id: Int = row["id"]
+        let cash: Double = row["cash"]
+        let date: Date = row["date"]
+        let comment: String = row["comment"]
+        let category: String = row["category"]
+        let purseOrTarget: String = row["purseOrTarget"]
+        
+        return Transaction(id: id, cash: cash, date: date, comment: comment, category: category, purseOrTarget: purseOrTarget)
+    }
 }

@@ -347,4 +347,27 @@ class DataBaseService: NSObject {
         return cashDay
     }
     
+    func getTransactionOnDay(_ day: Date) -> [Transaction] {
+        var transactions: [Transaction] = []
+        do {
+            try self.dbQueue?.inDatabase { db in
+                let rows = try Row.fetchCursor(db, """
+                    SELECT *
+                    FROM transactionTable
+                    WHERE date = \(day)
+                    ORDER BY date DESC;
+                    """)
+                while let row = try rows.next() {
+                    let currentTransaction = cursor.getTransaction(fromRow: row)
+                    transactions.append(currentTransaction)
+                    print("currentTransaction: \(currentTransaction)")
+                }
+                print("transactions: \(transactions)")
+            }
+        } catch {
+            NSLog("Failed to read from database")
+        }
+        return transactions
+    }
+    
 }
