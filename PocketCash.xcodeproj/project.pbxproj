@@ -82,6 +82,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		5588B9C01FEB285900600B8F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CE40A7DA1FDF1DF800B905C8 /* DataBaseService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		5588B9C11FEB289D00600B8F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE2C4A131FD137CB0073DDC8 /* CashDetailViewController.swift */,
+				CE2618A61FD4353B00C19D5E /* MainViewController.swift */,
+				CE1BDAF21FE1A74500CF0431 /* SettingsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		735BBAF2B8AB53AD81120A60 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,12 +134,10 @@
 				CE24CE231FD08CEB0099CA24 /* AppDelegate.swift */,
 				CE24CE2A1FD08CEB0099CA24 /* Assets.xcassets */,
 				CE24CE2C1FD08CEB0099CA24 /* LaunchScreen.storyboard */,
-				CE2C4A131FD137CB0073DDC8 /* CashDetailViewController.swift */,
-				CE2618A61FD4353B00C19D5E /* MainViewController.swift */,
-				CE1BDAF21FE1A74500CF0431 /* SettingsViewController.swift */,
 				CE40A7D81FDF18AA00B905C8 /* CashOperation.swift */,
+				5588B9C11FEB289D00600B8F /* ViewControllers */,
+				5588B9C01FEB285900600B8F /* Service */,
 				5588B9BF1FEAE6AE00600B8F /* Model */,
-				CE40A7DA1FDF1DF800B905C8 /* DataBaseService.swift */,
 				CE1BDAF61FE1C1FA00CF0431 /* UserDataBase2.swift */,
 				CE24CE271FD08CEB0099CA24 /* Main.storyboard */,
 				CE24CE2F1FD08CEB0099CA24 /* Info.plist */,

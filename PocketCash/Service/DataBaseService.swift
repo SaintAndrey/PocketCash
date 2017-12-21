@@ -23,7 +23,7 @@ class DataBaseService: NSObject {
             self.dbQueue = try DatabaseQueue(path: pathToDatabaseFile)
             try self.dbQueue?.inDatabase { db in
                 try db.execute("""
-                                CREATE TABLE IF NOT EXISTS transaction (
+                                CREATE TABLE IF NOT EXISTS transactionTable (
                                     id INTEGER PRIMARY KEY,
                                     cash DOUBLE NOT NULL,
                                     date DATETIME NOT NULL,
@@ -52,20 +52,105 @@ class DataBaseService: NSObject {
                                     descriptionLog TEXT NOT NULL,
                                     date DATETIME NOT NULL)
                                 """)
-                try db.execute("""
-                                CREATE TABLE IF NOT EXISTS budget (
-                                    name TEXT NOT NULL,
-                                    purseOrTarget TEXT NOT NULL,
-                                    maxAmount DOUBLE NOT NULL,
-                                    currentAmount DOUBLE NOT NULL,
-                                    beginDate DATETIME NOT NULL,
-                                    period DATETIME NOT NULL,
-                                    FOREIGN KEY (purseOrTarget) REFERENCES pursesAndTargets(namePurseOrTarget))
-                                """)
+//                try db.execute("""
+//                                CREATE TABLE IF NOT EXISTS budget (
+//                                    name TEXT NOT NULL,
+//                                    purseOrTarget TEXT NOT NULL,
+//                                    maxAmount DOUBLE NOT NULL,
+//                                    currentAmount DOUBLE NOT NULL,
+//                                    beginDate DATETIME NOT NULL,
+//                                    period DATETIME NOT NULL,
+//                                    FOREIGN KEY (purseOrTarget) REFERENCES pursesAndTargets(namePurseOrTarget))
+//                                """)
                 try db.execute("""
                                 CREATE TABLE IF NOT EXISTS category (
                                     nameCategory TEXT PRIMARY KEY)
                                 """)
+                try db.execute("""
+                                CREATE TRIGGER insertTransactin BEFORE INSERT
+                                ON transactionTable
+                                BEGIN
+                                INSERT INTO logger(descriptionLog, date) VALUES ('INSERT into transaction', datetime('now'));
+                                END
+                                """)
+                try db.execute("""
+                                CREATE TRIGGER insertCategory BEFORE INSERT
+                                ON category
+                                BEGIN
+                                INSERT INTO logger(descriptionLog, date) VALUES ('INSERT into category', datetime('now'));
+                                END
+                                """)
+                try db.execute("""
+                                CREATE TRIGGER insertUser BEFORE INSERT
+                                ON user
+                                BEGIN
+                                INSERT INTO logger(descriptionLog, date) VALUES ('INSERT into user', datetime('now'));
+                                END
+                                """)
+                try db.execute("""
+                                CREATE TRIGGER insertPursesAndTargets BEFORE INSERT
+                                ON pursesAndTargets
+                                BEGIN
+                                INSERT INTO logger(descriptionLog, date) VALUES ('INSERT into pursesAndTargets', datetime('now'));
+                                END
+                                """)
+                try db.execute("""
+                                CREATE TRIGGER updateTransaction BEFORE UPDATE
+                                ON transactionTable
+                                BEGIN
+                                INSERT INTO logger(descriptionLog, date) VALUES ('UPDATE into transaction', datetime('now'));
+                                END
+                                """)
+                try db.execute("""
+                                CREATE TRIGGER updateCategory BEFORE UPDATE
+                                ON category
+                                BEGIN
+                                INSERT INTO logger(descriptionLog, date) VALUES ('UPDATE into category', datetime('now'));
+                                END
+                                """)
+                try db.execute("""
+                                CREATE TRIGGER updateUser BEFORE UPDATE
+                                ON user
+                                BEGIN
+                                INSERT INTO logger(descriptionLog, date) VALUES ('UPDATE into user', datetime('now'));
+                                END
+                                """)
+                try db.execute("""
+                                CREATE TRIGGER updatePursesAndTargets BEFORE UPDATE
+                                ON pursesAndTargets
+                                BEGIN
+                                INSERT INTO logger(descriptionLog, date) VALUES ('UPDATE into pursesAndTargets', datetime('now'));
+                                END
+                                """)
+                try db.execute("""
+                                CREATE TRIGGER deleteTransaction BEFORE DELETE
+                                ON transactionTable
+                                BEGIN
+                                INSERT INTO logger(descriptionLog, date) VALUES ('DELETE into transaction', datetime('now'));
+                                END
+                                """)
+                try db.execute("""
+                                CREATE TRIGGER deleteCategory BEFORE DELETE
+                                ON category
+                                BEGIN
+                                INSERT INTO logger(descriptionLog, date) VALUES ('DELETE into category', datetime('now'));
+                                END
+                                """)
+                try db.execute("""
+                                CREATE TRIGGER deleteUser BEFORE DELETE
+                                ON user
+                                BEGIN
+                                INSERT INTO logger(descriptionLog, date) VALUES ('DELETE into user', datetime('now'));
+                                END
+                                """)
+                try db.execute("""
+                                CREATE TRIGGER deletePursesAndTargets BEFORE DELETE
+                                ON pursesAndTargets
+                                BEGIN
+                                INSERT INTO logger(descriptionLog, date) VALUES ('DELETE into pursesAndTargets', datetime('now'));
+                                END
+                                """)
+
 
             }
         } catch {
@@ -103,10 +188,29 @@ class DataBaseService: NSObject {
         do {
             try self.dbQueue?.inDatabase { db in
                 try db.execute(
-                        "INSERT INTO transaction (cash, date, comment, category, purseOrTarget) " +
+                        "INSERT INTO transactionTable (cash, date, comment, category, purseOrTarget) " +
                         "VALUES (?, ?, ?, ?, ?)",
                         arguments: [transaction.cash, transaction.date, transaction.comment, transaction.category, transaction.purseOrTarget])
                     NSLog("CashOperation with date \(transaction.date) was inserted")
+            }
+        } catch let error as DatabaseError {
+            NSLog("Failed to insert new cashOperation to datebase.")
+            NSLog("Error: \(String(describing: error.message))")
+            NSLog("Request: \(String(describing: error.sql))")
+        } catch {
+            NSLog("Failed to insert new cashOperation to datebase.")
+            NSLog("Error: unknown error")
+        }
+    }
+    
+    func insertUser(user: User) {
+        do {
+            try self.dbQueue?.inDatabase { db in
+                try db.execute(
+                    "INSERT INTO user (name, surname, date, gender) " +
+                    "VALUES (?, ?, ?, ?)",
+                    arguments: [user.name, user.surname, user.date, user.gender])
+                NSLog("User with name \(user.name) was inserted")
             }
         } catch let error as DatabaseError {
             NSLog("Failed to insert new cashOperation to datebase.")
@@ -140,6 +244,7 @@ class DataBaseService: NSObject {
             NSLog("Error: unknown error")
         }
     }
+    
     
     func insertCategory(category: Category) {
         do {
@@ -192,25 +297,6 @@ class DataBaseService: NSObject {
             NSLog("Failed to read from database")
         }
         return cashOperations
-    }
-    
-    func insertUser(user: User) {
-        do {
-            try self.dbQueue?.inDatabase { db in
-                try db.execute(
-                    "INSERT INTO user (name, surname, date, gender) " +
-                    "VALUES (?, ?, ?, ?)",
-                    arguments: [user.name, user.surname, user.date, user.gender])
-                NSLog("User with name \(user.name) was inserted")
-            }
-        } catch let error as DatabaseError {
-            NSLog("Failed to insert new cashOperation to datebase.")
-            NSLog("Error: \(String(describing: error.message))")
-            NSLog("Request: \(String(describing: error.sql))")
-        } catch {
-            NSLog("Failed to insert new cashOperation to datebase.")
-            NSLog("Error: unknown error")
-        }
     }
     
     func readUser() -> [User] {
