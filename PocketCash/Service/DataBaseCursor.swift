@@ -20,11 +20,26 @@ class DataBaseCursor: NSObject {
         return User(name: name, surname: surname, date: date, gender: gender)
     }
     
+    func getPurseOrTarget(fromRow row: Row) -> PurseOrTarget {
+        let id: Int = row["id"]
+        let name: String = row["name"]
+        let amountCash: Double = row["amountCash"]
+        let isPurse: Bool = row["isPurse"]
+        
+        return PurseOrTarget(id: id, name: name, amountCash: amountCash, isPurse: isPurse)
+    }
+    
     func getCashDay(fromRow row: Row) -> CashDay {
         let cash: Double = row["cash"]
         let date: Date = row["date"]
         
         return CashDay(cash: cash, date: date)
+    }
+    
+    func getCategory(fromRow row: Row) -> Category {
+        let nameCategory: String = row["nameCategory"]
+        
+        return Category(nameCategory: nameCategory)
     }
     
     func getTransaction(fromRow row: Row) -> Transaction {
