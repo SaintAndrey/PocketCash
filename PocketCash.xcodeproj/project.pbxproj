@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5588B9B81FEADFF000600B8F /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588B9B71FEADFF000600B8F /* Transaction.swift */; };
+		5588B9BA1FEAE4A600600B8F /* PurseOrTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588B9B91FEAE4A600600B8F /* PurseOrTarget.swift */; };
+		5588B9BC1FEAE5E100600B8F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588B9BB1FEAE5E100600B8F /* Logger.swift */; };
+		5588B9BE1FEAE66C00600B8F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588B9BD1FEAE66C00600B8F /* Category.swift */; };
+		5588B9C31FEB4E9B00600B8F /* DataBaseCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588B9C21FEB4E9B00600B8F /* DataBaseCursor.swift */; };
+		5588B9C51FEB500C00600B8F /* CashDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588B9C41FEB500C00600B8F /* CashDay.swift */; };
 		577473EDDC4FFC4D926B4913 /* Pods_PocketCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4360C0C299EF11A46D05AB98 /* Pods_PocketCash.framework */; };
 		CE1BDAF31FE1A74500CF0431 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDAF21FE1A74500CF0431 /* SettingsViewController.swift */; };
 		CE1BDAF51FE1C03800CF0431 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDAF41FE1C03800CF0431 /* User.swift */; };
@@ -26,6 +32,12 @@
 /* Begin PBXFileReference section */
 		119977F87AD2DE0A7FDF8608 /* Pods-PocketCash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCash/Pods-PocketCash.debug.xcconfig"; sourceTree = "<group>"; };
 		4360C0C299EF11A46D05AB98 /* Pods_PocketCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5588B9B71FEADFF000600B8F /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		5588B9B91FEAE4A600600B8F /* PurseOrTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseOrTarget.swift; sourceTree = "<group>"; };
+		5588B9BB1FEAE5E100600B8F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		5588B9BD1FEAE66C00600B8F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		5588B9C21FEB4E9B00600B8F /* DataBaseCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseCursor.swift; sourceTree = "<group>"; };
+		5588B9C41FEB500C00600B8F /* CashDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashDay.swift; sourceTree = "<group>"; };
 		CE1BDAF21FE1A74500CF0431 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CE1BDAF41FE1C03800CF0431 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CE1BDAF61FE1C1FA00CF0431 /* UserDataBase2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataBase2.swift; sourceTree = "<group>"; };
@@ -64,6 +76,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5588B9BF1FEAE6AE00600B8F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5588B9B91FEAE4A600600B8F /* PurseOrTarget.swift */,
+				5588B9BB1FEAE5E100600B8F /* Logger.swift */,
+				5588B9BD1FEAE66C00600B8F /* Category.swift */,
+				CE1BDAF41FE1C03800CF0431 /* User.swift */,
+				5588B9B71FEADFF000600B8F /* Transaction.swift */,
+				5588B9C41FEB500C00600B8F /* CashDay.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5588B9C01FEB285900600B8F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CE40A7DA1FDF1DF800B905C8 /* DataBaseService.swift */,
+				5588B9C21FEB4E9B00600B8F /* DataBaseCursor.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		5588B9C11FEB289D00600B8F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE2C4A131FD137CB0073DDC8 /* CashDetailViewController.swift */,
+				CE2618A61FD4353B00C19D5E /* MainViewController.swift */,
+				CE1BDAF21FE1A74500CF0431 /* SettingsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		735BBAF2B8AB53AD81120A60 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,13 +142,17 @@
 				CE24CE231FD08CEB0099CA24 /* AppDelegate.swift */,
 				CE24CE2A1FD08CEB0099CA24 /* Assets.xcassets */,
 				CE24CE2C1FD08CEB0099CA24 /* LaunchScreen.storyboard */,
+<<<<<<< HEAD
+=======
 				CE2C4A131FD137CB0073DDC8 /* CashDetailViewController.swift */,
 				CE2618A61FD4353B00C19D5E /* MainViewController.swift */,
 				CE1BDAF21FE1A74500CF0431 /* SettingsViewController.swift */,
 				CEDDE5A01FEAB3E8005E9C09 /* TransactionViewController.swift */,
+>>>>>>> 40625c4e84886e85f88ab8dc5911c248a4fa8f1f
 				CE40A7D81FDF18AA00B905C8 /* CashOperation.swift */,
-				CE1BDAF41FE1C03800CF0431 /* User.swift */,
-				CE40A7DA1FDF1DF800B905C8 /* DataBaseService.swift */,
+				5588B9C11FEB289D00600B8F /* ViewControllers */,
+				5588B9C01FEB285900600B8F /* Service */,
+				5588B9BF1FEAE6AE00600B8F /* Model */,
 				CE1BDAF61FE1C1FA00CF0431 /* UserDataBase2.swift */,
 				CE24CE271FD08CEB0099CA24 /* Main.storyboard */,
 				CE24CE2F1FD08CEB0099CA24 /* Info.plist */,
@@ -245,14 +293,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2C4A141FD137CB0073DDC8 /* CashDetailViewController.swift in Sources */,
+				5588B9BC1FEAE5E100600B8F /* Logger.swift in Sources */,
 				CE1BDAF71FE1C1FA00CF0431 /* UserDataBase2.swift in Sources */,
+				5588B9C31FEB4E9B00600B8F /* DataBaseCursor.swift in Sources */,
 				CE24CE241FD08CEB0099CA24 /* AppDelegate.swift in Sources */,
 				CE40A7D91FDF18AA00B905C8 /* CashOperation.swift in Sources */,
 				CEDDE5A11FEAB3E8005E9C09 /* TransactionViewController.swift in Sources */,
 				CE40A7DB1FDF1DF800B905C8 /* DataBaseService.swift in Sources */,
 				CE2618A71FD4353B00C19D5E /* MainViewController.swift in Sources */,
 				CE1BDAF31FE1A74500CF0431 /* SettingsViewController.swift in Sources */,
+				5588B9BA1FEAE4A600600B8F /* PurseOrTarget.swift in Sources */,
 				CE1BDAF51FE1C03800CF0431 /* User.swift in Sources */,
+				5588B9B81FEADFF000600B8F /* Transaction.swift in Sources */,
+				5588B9BE1FEAE66C00600B8F /* Category.swift in Sources */,
+				5588B9C51FEB500C00600B8F /* CashDay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,7 +446,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 66432QR97X;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/GRDB.swift\"",
@@ -415,7 +469,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 66432QR97X;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(inherited)",
