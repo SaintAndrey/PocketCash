@@ -34,6 +34,10 @@ class DataBaseService: NSObject {
                                     FOREIGN KEY (category) REFERENCES category(nameCategory))
                                 """)
                 try db.execute("""
+                                CREATE INDEX cashDay
+                                ON transactionTable(date)
+                                """)
+                try db.execute("""
                                 CREATE TABLE IF NOT EXISTS user (
                                     name TEXT NOT NULL,
                                     surname TEXT NOT NULL,
