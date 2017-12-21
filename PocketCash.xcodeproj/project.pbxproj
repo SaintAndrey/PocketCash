@@ -25,6 +25,7 @@
 		CE2C4A141FD137CB0073DDC8 /* CashDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C4A131FD137CB0073DDC8 /* CashDetailViewController.swift */; };
 		CE40A7D91FDF18AA00B905C8 /* CashOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40A7D81FDF18AA00B905C8 /* CashOperation.swift */; };
 		CE40A7DB1FDF1DF800B905C8 /* DataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40A7DA1FDF1DF800B905C8 /* DataBaseService.swift */; };
+		CEDDE5A11FEAB3E8005E9C09 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDDE5A01FEAB3E8005E9C09 /* TransactionViewController.swift */; };
 		CEF665D91FE509E700D8D840 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF665D81FE509E700D8D840 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		CE2C4A131FD137CB0073DDC8 /* CashDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashDetailViewController.swift; sourceTree = "<group>"; };
 		CE40A7D81FDF18AA00B905C8 /* CashOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashOperation.swift; sourceTree = "<group>"; };
 		CE40A7DA1FDF1DF800B905C8 /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
+		CEDDE5A01FEAB3E8005E9C09 /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		CEF665D81FE509E700D8D840 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D49131F01BCDED466A1D1392 /* Pods-PocketCash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCash.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCash/Pods-PocketCash.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +142,13 @@
 				CE24CE231FD08CEB0099CA24 /* AppDelegate.swift */,
 				CE24CE2A1FD08CEB0099CA24 /* Assets.xcassets */,
 				CE24CE2C1FD08CEB0099CA24 /* LaunchScreen.storyboard */,
+<<<<<<< HEAD
+=======
+				CE2C4A131FD137CB0073DDC8 /* CashDetailViewController.swift */,
+				CE2618A61FD4353B00C19D5E /* MainViewController.swift */,
+				CE1BDAF21FE1A74500CF0431 /* SettingsViewController.swift */,
+				CEDDE5A01FEAB3E8005E9C09 /* TransactionViewController.swift */,
+>>>>>>> 40625c4e84886e85f88ab8dc5911c248a4fa8f1f
 				CE40A7D81FDF18AA00B905C8 /* CashOperation.swift */,
 				5588B9C11FEB289D00600B8F /* ViewControllers */,
 				5588B9C01FEB285900600B8F /* Service */,
@@ -289,6 +298,7 @@
 				5588B9C31FEB4E9B00600B8F /* DataBaseCursor.swift in Sources */,
 				CE24CE241FD08CEB0099CA24 /* AppDelegate.swift in Sources */,
 				CE40A7D91FDF18AA00B905C8 /* CashOperation.swift in Sources */,
+				CEDDE5A11FEAB3E8005E9C09 /* TransactionViewController.swift in Sources */,
 				CE40A7DB1FDF1DF800B905C8 /* DataBaseService.swift in Sources */,
 				CE2618A71FD4353B00C19D5E /* MainViewController.swift in Sources */,
 				CE1BDAF31FE1A74500CF0431 /* SettingsViewController.swift in Sources */,
